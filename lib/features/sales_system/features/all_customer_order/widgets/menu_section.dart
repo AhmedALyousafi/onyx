@@ -1,9 +1,15 @@
 import 'package:onyx/core/cubit/cubit.dart';
 import 'package:onyx/core/cubit/state.dart';
+import 'package:onyx/features/Archiving-System/cubit/cubit.dart';
+import 'package:onyx/features/Archiving-System/cubit/state.dart';
+import 'package:onyx/features/Archiving-System/home/drawer_widget.dart';
 import 'package:onyx/features/Pos-System/features/pos/presentation/cubit/cubit.dart';
 import 'package:onyx/features/Pos-System/features/pos/presentation/cubit/state.dart';
 import 'package:onyx/features/Pos-System/features/pos/presentation/pos_screen.dart';
 import 'package:onyx/features/Shipping-System/features/shipping/presentation/pages/home/drawer_widget.dart';
+import 'package:onyx/features/Warehouse-System/cubit/cubit.dart';
+import 'package:onyx/features/Warehouse-System/cubit/state.dart';
+import 'package:onyx/features/Warehouse-System/features/warehouse/presentation/pages/home/drawer_widget.dart';
 import 'package:onyx/features/sales_system/cubit/cubit.dart';
 import 'package:onyx/features/sales_system/cubit/state.dart';
 import 'package:onyx/features/sales_system/features/all_customer_order/view/custome_request.dart';
@@ -75,7 +81,7 @@ class _MenuSectionState extends State<MenuSection> {
             useMaterial3: true,
           ),
           debugShowCheckedModeBanner: false,
-          home: POSScreen(),
+          home: const POSScreen(),
         ),
       ),
     ));
@@ -96,7 +102,49 @@ class _MenuSectionState extends State<MenuSection> {
             useMaterial3: true,
           ),
           debugShowCheckedModeBanner: false,
-          home: CustomeRequest1(),
+          home: const CustomeRequest1(),
+        ),
+      ),
+    ));
+  }
+
+  void _navigateToArchiving(BuildContext context, ArchivingState state) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => BlocProvider(
+        create: (context) => ArchivingCubit(state),
+        child: MaterialApp(
+          title: 'Archiving System',
+          theme: ThemeData(
+            primaryColor: const Color(0xFF094F90),
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color(0xFF094F90),
+            ),
+            fontFamily: 'Readex Pro',
+            useMaterial3: true,
+          ),
+          debugShowCheckedModeBanner: false,
+          home: const ArchivingPage(),
+        ),
+      ),
+    ));
+  }
+
+  void _navigateToWarehouse(BuildContext context, WarehouseSystemState state) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => BlocProvider(
+        create: (context) => WarehouseSystemCubit(state),
+        child: MaterialApp(
+          title: 'Warehouse System',
+          theme: ThemeData(
+            primaryColor: const Color(0xFF094F90),
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color(0xFF094F90),
+            ),
+            fontFamily: 'Readex Pro',
+            useMaterial3: true,
+          ),
+          debugShowCheckedModeBanner: false,
+          home: const WarehouseSystem(),
         ),
       ),
     ));
@@ -140,6 +188,16 @@ class _MenuSectionState extends State<MenuSection> {
                     _navigateToShipping(
                       context,
                       InvoiceState(),
+                    );
+                  } else if (subItem == 'نظام الأرشفة') {
+                    _navigateToArchiving(
+                      context,
+                      ArchivingState(),
+                    );
+                  } else if (subItem == 'نظام المخازن') {
+                    _navigateToWarehouse(
+                      context,
+                      WarehouseSystemState(),
                     );
                   }
                 },

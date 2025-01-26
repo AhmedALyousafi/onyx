@@ -17,7 +17,7 @@ class POSScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF1F9FF),
+      backgroundColor: const Color(0xffF1F9FF),
       endDrawer: Drawer(
         child: Container(
           width: 120,
@@ -74,6 +74,13 @@ class POSScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 6),
                         MenuSection(
+                          title: ' إدارة النظام ',
+                          icon: Icons.account_balance_outlined,
+                          subItems: [
+                            'نظام الأرشفة',
+                          ],
+                        ),
+                        MenuSection(
                           title: 'نظام إدارة الحسابات',
                           icon: Icons.account_balance_outlined,
                         ),
@@ -109,6 +116,8 @@ class POSScreen extends StatelessWidget {
                           icon: Icons.point_of_sale_outlined,
                           subItems: const [
                             'نظام طلبات العملاء',
+                            'نظام الأرشفة',
+                            'نظام المخازن',
                           ],
                         ),
                         MenuSection(

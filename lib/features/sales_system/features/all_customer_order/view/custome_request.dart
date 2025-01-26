@@ -1,4 +1,4 @@
-import 'package:onyx/features/Shipping-System/features/shipping/presentation/pages/home/shipping_appbar.dart';
+import 'package:onyx/core/appbar/appbar.dart';
 import 'package:onyx/features/sales_system/features/all_customer_order/widgets/cont.dart';
 import 'package:onyx/features/sales_system/features/all_customer_order/widgets/grid.dart';
 import 'package:onyx/features/sales_system/features/all_customer_order/widgets/header_order.dart';
@@ -68,6 +68,13 @@ class CustomeRequest extends StatelessWidget {
                         ),
                         SizedBox(height: 6),
                         MenuSection(
+                          title: ' إدارة النظام ',
+                          icon: Icons.account_balance_outlined,
+                          subItems: [
+                            'نظام الأرشفة',
+                          ],
+                        ),
+                        MenuSection(
                           title: 'نظام إدارة الحسابات',
                           icon: Icons.account_balance_outlined,
                         ),
@@ -103,6 +110,8 @@ class CustomeRequest extends StatelessWidget {
                           icon: Icons.point_of_sale_outlined,
                           subItems: const [
                             'نظام طلبات العملاء',
+                            'نظام الأرشفة',
+                            'نظام المخازن',
                           ],
                         ),
                         MenuSection(
@@ -148,7 +157,7 @@ class CustomeRequest extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Shippingappbar(),
+            Appbar(),
             HeaderAllOrder(
               title: 'جميع طلبات العملاء',
               icon: FontAwesomeIcons.chevronRight,

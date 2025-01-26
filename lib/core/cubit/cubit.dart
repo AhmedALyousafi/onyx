@@ -182,15 +182,15 @@ class InvoiceCubit extends Cubit<InvoiceState> {
         'LngNo': 1,
         'LngDflt': 1,
         'Territory': 'Test',
-        'Token': 'xyz1234',
+        'Token': ' xyz1234',
         'CID': 'A1234',
         'APPID': null,
         'Authorization':
-            'Bearer onbnLQGvBQXtnSUYdIpinWtRFXwXtTJ7wngtlq7Dw3iDC65pzBvqJd',
+            'Bearer i9iYiC1Q14QyhyMlz8ei2X9jTO3Pa46BSzxUqwSbC0oBvVmWycpFj4',
       })).post(
-          'https://learnonyx.com:8097/ultimate-onyxix/api/v5.1.5/erpweb/main/tmplt/qry/grdLst',
+          'https://88.80.145.121:8097/ultimate-onyxix/api/v5.1.5/erpweb/main/tmplt/qry/grdLst',
           data: {
-            "doctyp": 1306,
+            "docTyp": 1306,
             "scrNo": 7363,
             "untNo": 2,
             "sysNo": 1,
@@ -199,8 +199,8 @@ class InvoiceCubit extends Cubit<InvoiceState> {
             "crtnYr": "0",
             "cntaFlag": "0",
             "inactivFlag": "0",
-            "pgNo": "null",
-            "pgSz": "null"
+            "pgNo": "1",
+            "pgSz": "10"
           });
 
       emit(SignUpSuccess());
@@ -238,9 +238,10 @@ class InvoiceCubit extends Cubit<InvoiceState> {
       print('Rows: $rows');
 
       return {'columns': columns, 'rows': rows};
-    } else {
-      print('No columns or rows available');
-      return {'columns': [], 'rows': []};
     }
+    // else {
+    //   print('No columns or rows available');
+    //   return {'columns': [], 'rows': []};
+    // }
   }
 }

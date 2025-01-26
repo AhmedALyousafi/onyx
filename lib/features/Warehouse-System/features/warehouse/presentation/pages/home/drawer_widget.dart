@@ -1,11 +1,15 @@
+import 'package:flutter/material.dart';
 import 'package:onyx/core/appbar/appbar.dart';
-import 'package:onyx/features/sales_system/summary_totals.dart';
+import 'package:onyx/core/utils/responsive.dart';
+import 'package:onyx/features/Warehouse-System/features/warehouse/presentation/pages/home/cont.dart';
+import 'package:onyx/features/Warehouse-System/features/warehouse/presentation/pages/home/header_table.dart';
+import 'package:onyx/features/Warehouse-System/features/warehouse/presentation/pages/home/warehouse_breadcrumb.dart';
+import 'package:onyx/features/Warehouse-System/features/warehouse/presentation/pages/home/warehouse_grid.dart';
 import 'package:onyx/features/sales_system/features/all_customer_order/widgets/menu_section.dart';
 
-import 'package:flutter/material.dart';
-import 'package:onyx/features/sales_system/features/new_customer_order/widgets/mainmenu.dart';
+class WarehouseSystem extends StatelessWidget {
+  const WarehouseSystem({super.key});
 
-class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -156,11 +160,39 @@ class DashboardPage extends StatelessWidget {
         child: Column(
           children: [
             Appbar(),
-            Mainmenu(),
+            Padding(
+              padding: ResponsiveUtils.getPagePadding(context),
+              child: const ShippingBreadcrumb(),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4)],
+                  color: Colors.white,
+                ),
+                child: Column(
+                  children: [
+                    HeaderTableOrders(),
+                    Directionality(
+                      textDirection: TextDirection.rtl,
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height * 0.28,
+                        child: CustomGrid(),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 0,
+                    ),
+                    PaginationExample(),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
-      bottomNavigationBar: const SummaryPanel(),
     );
   }
 }
@@ -175,5 +207,29 @@ ListTile _createDrawerItem(IconData icon, String text) {
     onTap: () {
       // Add navigation logic here if necessary
     },
+  );
+}
+
+Widget _buildCheckbox(String label, BuildContext context) {
+  return Row(
+    children: [
+      Text(label),
+      Theme(
+          data: Theme.of(context).copyWith(
+            checkboxTheme: CheckboxThemeData(
+              shape: BeveledRectangleBorder(
+                  borderRadius: BorderRadius.circular(2)),
+              side: const BorderSide(color: Color(0xffe2e2e2), width: 0.5),
+            ),
+          ),
+          child: Checkbox(value: false, onChanged: (bool? value) {})),
+    ],
+  );
+}
+
+Widget build(BuildContext context) {
+  var isCollapsed;
+  return Container(
+    child: Text(isCollapsed ? 'Collapsed' : 'Expanded'),
   );
 }

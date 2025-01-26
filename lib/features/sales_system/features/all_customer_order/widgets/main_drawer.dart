@@ -1,4 +1,4 @@
-import 'package:onyx/features/Shipping-System/features/shipping/presentation/pages/home/shipping_appbar.dart';
+import 'package:onyx/core/appbar/appbar.dart';
 import 'package:onyx/features/sales_system/features/all_customer_order/widgets/cont.dart';
 import 'package:onyx/features/sales_system/features/all_customer_order/widgets/grid.dart';
 import 'package:onyx/features/sales_system/features/all_customer_order/widgets/header_order.dart';
@@ -78,7 +78,7 @@ class CustomeRequest1 extends StatelessWidget {
                             'نظام إدارة العملاء',
                             'نظام إدارة المبيعات',
                             'نظام العمولات',
-                            'نظام الصيانة',
+                            'نظام الأرشفة',
                           ],
                         ),
                         MenuSection(
@@ -104,7 +104,7 @@ class CustomeRequest1 extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Shippingappbar(),
+            Appbar(),
             HeaderAllOrder(
               title: 'جميع طلبات العملاء',
               icon: FontAwesomeIcons.chevronRight,
@@ -113,7 +113,9 @@ class CustomeRequest1 extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Container(
                 decoration: BoxDecoration(
-                  boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 4)],
+                  boxShadow: const [
+                    BoxShadow(color: Colors.black12, blurRadius: 4)
+                  ],
                   color: Colors.white,
                 ),
                 child: Column(

@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:onyx/core/appbar/appbar.dart';
-import 'package:onyx/features/sales_system/summary_totals.dart';
 import 'package:onyx/features/sales_system/features/all_customer_order/widgets/menu_section.dart';
 
-import 'package:flutter/material.dart';
-import 'package:onyx/features/sales_system/features/new_customer_order/widgets/mainmenu.dart';
+import 'warehouse_main_menu.dart';
+import 'warehouse_tool_bar.dart';
 
 class DashboardPage extends StatelessWidget {
   @override

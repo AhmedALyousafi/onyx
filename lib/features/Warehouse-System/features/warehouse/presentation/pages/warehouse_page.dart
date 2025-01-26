@@ -1,9 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:onyx/core/appbar/appbar.dart';
 import 'package:onyx/core/utils/responsive.dart';
-import 'package:onyx/features/Shipping-System/features/shipping/presentation/pages/home/drawer_widget.dart';
-import 'package:onyx/features/Shipping-System/features/shipping/presentation/pages/home/shipping_breadcrumb.dart';
-
-import 'package:flutter/material.dart';
+import 'package:onyx/features/Warehouse-System/features/warehouse/presentation/pages/home/drawer_widget.dart';
+import 'package:onyx/features/Warehouse-System/features/warehouse/presentation/pages/home/warehouse_breadcrumb.dart';
 
 class ShippingPage extends StatelessWidget {
   const ShippingPage({super.key});
@@ -19,7 +18,7 @@ class ShippingPage extends StatelessWidget {
             child: const Column(
               children: [
                 ShippingBreadcrumb(),
-                CustomeRequest1(),
+                WarehouseSystem(),
               ],
             ),
           ),

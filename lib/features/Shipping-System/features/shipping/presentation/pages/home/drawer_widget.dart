@@ -1,9 +1,9 @@
+import 'package:onyx/core/appbar/appbar.dart';
 import 'package:onyx/core/utils/responsive.dart';
 import 'package:onyx/features/Shipping-System/features/shipping/presentation/pages/home/cont.dart';
 import 'package:onyx/features/Shipping-System/features/shipping/presentation/pages/home/shiping_header_table.dart';
 import 'package:onyx/features/Shipping-System/features/shipping/presentation/pages/home/shipping_grid.dart';
 import 'package:onyx/features/sales_system/features/all_customer_order/widgets/menu_section.dart';
-import 'package:onyx/features/Shipping-System/features/shipping/presentation/pages/home/shipping_appbar.dart';
 import 'package:onyx/features/Shipping-System/features/shipping/presentation/pages/home/shipping_breadcrumb.dart';
 
 import 'package:flutter/material.dart';
@@ -71,6 +71,13 @@ class CustomeRequest1 extends StatelessWidget {
                         ),
                         SizedBox(height: 6),
                         MenuSection(
+                          title: ' إدارة النظام ',
+                          icon: Icons.account_balance_outlined,
+                          subItems: [
+                            'نظام الأرشفة',
+                          ],
+                        ),
+                        MenuSection(
                           title: 'نظام إدارة الحسابات',
                           icon: Icons.account_balance_outlined,
                         ),
@@ -97,21 +104,23 @@ class CustomeRequest1 extends StatelessWidget {
                         MenuSection(
                           title: 'نظام إدارة الموردين والمشتريات',
                           icon: Icons.shopping_cart_outlined,
-                          subItems: [
+                          subItems: const [
                             'نظام الشحن',
                           ],
                         ),
                         MenuSection(
                           title: 'نظام إدارة العملاء والمبيعات',
                           icon: Icons.point_of_sale_outlined,
-                          subItems: [
-                            'نظام البيع المباشر',
+                          subItems: const [
+                            'نظام طلبات العملاء',
+                            'نظام الأرشفة',
+                            'نظام المخازن',
                           ],
                         ),
                         MenuSection(
                           title: 'نظام إدارة نقاط البيع',
                           icon: Icons.storefront_outlined,
-                          subItems: [
+                          subItems: const [
                             'نظام البيع المباشر',
                           ],
                         ),
@@ -151,7 +160,7 @@ class CustomeRequest1 extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Shippingappbar(),
+            const Appbar(),
             Padding(
               padding: ResponsiveUtils.getPagePadding(context),
               child: const ShippingBreadcrumb(),

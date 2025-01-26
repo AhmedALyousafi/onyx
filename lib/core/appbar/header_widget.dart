@@ -79,12 +79,12 @@ class HeaderWidget extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: 1103,
+                width: 1078,
               ),
               Container(
                 padding: const EdgeInsets.all(6),
                 decoration: BoxDecoration(
-                  color:  AppColors.blue,
+                  color: AppColors.blue,
                   borderRadius: BorderRadius.circular(2),
                 ),
                 child: Builder(

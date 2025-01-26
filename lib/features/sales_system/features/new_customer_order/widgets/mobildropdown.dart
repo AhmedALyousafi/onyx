@@ -28,7 +28,7 @@ class MobileTextFieldWidget extends StatelessWidget {
           enabled: enabled,
           decoration: InputDecoration(
             filled: true,
-            fillColor: fillColor,
+            fillColor: Color(0xffF9F9F9),
             enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: AppColors.griid,

@@ -1,9 +1,8 @@
-import 'package:onyx/core/appbar/appbar.dart';
-import 'package:onyx/features/sales_system/summary_totals.dart';
-import 'package:onyx/features/sales_system/features/all_customer_order/widgets/menu_section.dart';
-
 import 'package:flutter/material.dart';
-import 'package:onyx/features/sales_system/features/new_customer_order/widgets/mainmenu.dart';
+import 'package:onyx/core/appbar/appbar.dart';
+import 'package:onyx/core/appbar/header_widget.dart';
+import 'package:onyx/features/Archiving-System/archiving%20information/archiving_main_menu.dart';
+import 'package:onyx/features/sales_system/features/all_customer_order/widgets/menu_section.dart';
 
 class DashboardPage extends StatelessWidget {
   @override
@@ -160,7 +159,6 @@ class DashboardPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const SummaryPanel(),
     );
   }
 }
@@ -175,5 +173,29 @@ ListTile _createDrawerItem(IconData icon, String text) {
     onTap: () {
       // Add navigation logic here if necessary
     },
+  );
+}
+
+Widget _buildCheckbox(String label, BuildContext context) {
+  return Row(
+    children: [
+      Text(label),
+      Theme(
+          data: Theme.of(context).copyWith(
+            checkboxTheme: CheckboxThemeData(
+              shape: BeveledRectangleBorder(
+                  borderRadius: BorderRadius.circular(2)),
+              side: const BorderSide(color: Color(0xffe2e2e2), width: 0.5),
+            ),
+          ),
+          child: Checkbox(value: false, onChanged: (bool? value) {})),
+    ],
+  );
+}
+
+Widget build(BuildContext context) {
+  var isCollapsed;
+  return Container(
+    child: Text(isCollapsed ? 'Collapsed' : 'Expanded'),
   );
 }
